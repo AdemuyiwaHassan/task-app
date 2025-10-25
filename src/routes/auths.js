@@ -16,7 +16,7 @@ router.post("/login", async (req, res) => {
     res.send({ user, token });
     sendLoginAlert(user.email, user.name);
   } catch (e) {
-    res.status(400).send(e);
+    res.status(401).send(e);
   }
 });
 
