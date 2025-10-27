@@ -1,17 +1,9 @@
-<<<<<<< HEAD
-# fly.toml app configuration file generated for task-manager-proud-shadow-1473 on 2025-10-08T17:39:24+01:00
-=======
 # fly.toml app configuration file generated for task-app-qt66aq on 2025-10-06T16:33:34Z
->>>>>>> 1b34af5cd623e9eaeb79aed277e27dc20c5ae3e9
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-<<<<<<< HEAD
-app = 'task-manager-proud-shadow-1473'
-=======
 app = 'task-app-qt66aq'
->>>>>>> 1b34af5cd623e9eaeb79aed277e27dc20c5ae3e9
 primary_region = 'fra'
 
 [build]
@@ -28,7 +20,4 @@ primary_region = 'fra'
   memory = '1gb'
   cpu_kind = 'shared'
   cpus = 1
-<<<<<<< HEAD
-=======
   memory_mb = 1024
->>>>>>> 1b34af5cd623e9eaeb79aed277e27dc20c5ae3e9
