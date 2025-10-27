@@ -28,3 +28,14 @@ test("Should fetch user tasks", async () => {
 
   expect(response.body.length).toEqual(1);
 });
+
+test("Should not delete other users tasks", async () => {
+  const task = await Task.findOne({ author: userId });
+  await request(app)
+    .delete(`/tasks/${task._id}`)
+    .set("Authorization", `Bearer ${sampleUser.tokens[0].token}`)
+    .send()
+    .expect(200);
+  const deletedTask = await Task.findById(task._id);
+  expect(deletedTask).toBeNull();
+});
