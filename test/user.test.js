@@ -1,29 +1,24 @@
 const request = require("supertest");
 const app = require("../src/app");
 const User = require("../src/model/user");
-const mongoose = require("mongoose");
-const jwt = require("jsonwebtoken");
-require("dotenv").config();
+const { sampleUser, userId, setupDatabase } = require("./fixtures/db");
 
-const userId = new mongoose.Types.ObjectId();
+// const userId = new mongoose.Types.ObjectId();
 
-const sampleUser = {
-  _id: userId,
-  name: "Sample User",
-  email: "sampleuser@example.com",
-  password: "SamplePass123!",
-  tokens: [
-    {
-      token: jwt.sign({ _id: userId }, process.env.JWT_SECRET),
-    },
-  ],
-};
+// const sampleUser = {
+//   _id: userId,
+//   name: "Sample User",
+//   email: "sampleuser@example.com",
+//   password: "SamplePass123!",
+//   tokens: [
+//     {
+//       token: jwt.sign({ _id: userId }, process.env.JWT_SECRET),
+//     },
+//   ],
+// };
 
 // Before each test, clear the users collection
-beforeEach(async () => {
-  await User.deleteMany();
-  await new User(sampleUser).save();
-});
+beforeEach(setupDatabase);
 
 test("Should login existing user", async () => {
   await request(app)

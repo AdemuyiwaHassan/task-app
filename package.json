@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "mongodb.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=test jest --watchAll",
+    "test": "cross-env NODE_ENV=test jest --watchAll --runInBand",
     "start": "cross-env NODE_ENV=production node src/index.js",
     "dev": "cross-env NODE_ENV=development nodemon src/index.js"
   },
