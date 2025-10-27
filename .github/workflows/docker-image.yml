@@ -21,7 +21,7 @@ jobs:
         run: npm install
 
       - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/my-nodejs-app:${{ github.sha }} .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/simple-task-app:${{ github.sha }} .
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
@@ -30,4 +30,4 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
       - name: Push Docker image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/simple-task-app-api:${{ github.sha }}   
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/simple-task-app:${{ github.sha }}   
